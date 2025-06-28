@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { MoreHorizontalIcon, X } from "lucide-react";
+import Image from "next/image";
+import images from "@/public/images";
 
 const navigation = [
   { name: "About Us", href: "/about" },
@@ -24,18 +26,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4">
-      <nav className="header-nav bg-white/90 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
+    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full px-20">
+      <nav className="header-nav bg-white/50 backdrop-blur-md rounded-full px-6 py-4 shadow-lg">
+        <div className="flex items-center justify-between py-0">
+          <Link href="/" className="flex items-center space-x-2 ml-10">
+            <div className="w-24 h-auto flex items-center justify-center">
+              <Image src={images.logo} alt="Logo" className="" />
             </div>
-            <span className="font-bold text-gray-900">Plutarch</span>
+            {/* <span className="font-bold text-gray-900">Plutarch</span> */}
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-16 mr-16">
             {navigation.map((item) => (
               <Link
                 key={item.name}

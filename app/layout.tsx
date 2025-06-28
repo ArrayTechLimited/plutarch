@@ -1,14 +1,14 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Afacad } from "next/font/google";
 import "./globals.css";
+import Layout from "@/components/layout/Layout";
 
-const inter = Inter({ subsets: ["latin"] });
+const afacad = Afacad({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Plutarch Construction",
   description: "From Blueprint to Reality, We deliver with Excellent Precision",
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={afacad.className}>
+        <Layout children={children} />
+      </body>
     </html>
   );
 }

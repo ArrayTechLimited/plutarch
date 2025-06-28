@@ -9,6 +9,15 @@ import CTASection from "@/components/sections/cta-section";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import images from "@/public/images";
+import {
+  InnovationIcon,
+  IntegrityIcon,
+  ProfessionalismIcon,
+  QualityDeliveryIcon,
+  TeamWorkIcon,
+} from "@/components/ui/icons";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -39,6 +48,39 @@ const featuredProjects = [
 ];
 
 export default function HomePage() {
+  const coreValues = [
+    {
+      title: "Integrity",
+      description:
+        "We lead with honesty and uphold ethical standards, ensuring trust and transparency in every project.",
+      icon: <IntegrityIcon />,
+    },
+    {
+      title: "Innovation",
+      description:
+        "We embrace forward-thinking ideas, cutting-edge technologies, and creative approaches to deliver smarter solutions.",
+      icon: <InnovationIcon />,
+    },
+    {
+      title: "Professionalism",
+      description:
+        "We conduct our business with discipline, excellence, and respect delivering value through expert execution.",
+      icon: <ProfessionalismIcon />,
+    },
+    {
+      title: "Quality Delivery",
+      description:
+        "We are committed to excellence meeting the highest standards in every detail, every time. No shortcuts. No compromises.",
+      icon: <QualityDeliveryIcon />,
+    },
+    {
+      title: "Team Work",
+      description:
+        "We thrive on collaboration. By working as one with clients & consultants, we achieve results that stand the test of time.",
+      icon: <TeamWorkIcon />,
+    },
+  ];
+
   useEffect(() => {
     // Smooth scroll setup
     gsap.registerPlugin(ScrollTrigger);
@@ -49,41 +91,45 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen">
-      <Header />
-
       <HeroSection
-        title="From Blueprint to Reality, We deliver with Excellent Precision"
+        title="From Blueprint to Reality, We deliver with"
         subtitle="Project Management"
         showCTA={true}
         backgroundImage="/placeholder.svg?height=800&width=1600"
       />
 
       {/* Services Icons Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 pt-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 -translate-y-14">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <div className="w-8 h-8 bg-gray-400 rounded"></div>
+            <div className="flex flex-col items-center bg-white rounded-xl py-7 shadow-[0px_10px_60px_0px_#0000001A]">
+              <div className="w-16 h-16 bg-gray-100/5 rounded-lg flex items-center justify-center">
+                <div className="w-[70%] h-[70%] bg-none rounded">
+                  <Image src={images.hero_sub_1} alt="icon" />
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-900">
-                Construction Management
+              <h3 className="font-light text-lg text-gray-900">
+                Experienced Professionals
               </h3>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <div className="w-8 h-8 bg-gray-400 rounded"></div>
+            <div className="flex flex-col items-center bg-white rounded-xl py-7 shadow-[0px_10px_60px_0px_#0000001A]">
+              <div className="w-16 h-16 bg-gray-100/5 rounded-lg flex items-center justify-center">
+                <div className="w-[70%] h-[70%] bg-none rounded">
+                  <Image src={images.hero_sub_2} alt="icon" />
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-900">
-                Design-Build Services
+              <h3 className="font-light text-lg text-gray-900">
+                Timely Project Delivery
               </h3>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <div className="w-8 h-8 bg-gray-400 rounded"></div>
+            <div className="flex flex-col items-center bg-white rounded-xl py-7 shadow-[0px_10px_60px_0px_#0000001A]">
+              <div className="w-16 h-16 bg-gray-100/5 rounded-lg flex items-center justify-center">
+                <div className="w-[70%] h-[70%] bg-none rounded">
+                  <Image src={images.hero_sub_3} alt="icon" />
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-900">
-                General Contracting
+              <h3 className="font-light text-lg text-gray-900">
+                Proven Track Record
               </h3>
             </div>
           </div>
@@ -95,27 +141,27 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                We deliver reliable construction solutions tailored to your
-                needs
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                With years of experience in the construction industry, we
-                specialize in delivering high-quality construction services that
-                exceed expectations. Our team of skilled professionals is
-                committed to bringing your vision to life.
+              <p className="text-foreground/50 font-extralight text-lg">
+                About Us.
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                At the heart of our operations is a strong Project Management
-                Foundation that ensures all our projects are delivered on time,
-                within budget, and to the highest quality standards.
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent">
+                We deliver reliable <br /> construction solutions tailored{" "}
+                <br /> to your needs
+              </h2>
+              <p className="text-gray-600 mb-6 leading-8">
+                Plutarch Integrated Services Ltd is a civil engineering and
+                building construction company. We provide smart, reliable
+                solutions to even the most complex construction challenges. At
+                the core of our operations is a strong Project Management
+                foundation that ensures quality delivery, budget control, and
+                client satisfaction with every project.
               </p>
             </div>
-            <div className="relative">
-              <img
-                src="/placeholder.svg?height=500&width=600"
+            <div className="relative w-[350px] aspect-auto ml-auto">
+              <Image
+                src={images.about}
                 alt="Construction site"
-                className="rounded-lg shadow-lg"
+                className="rounded-3xl shadow-lg"
               />
             </div>
           </div>
@@ -124,22 +170,35 @@ export default function HomePage() {
 
       {/* Feature Cards */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-green-600 text-white p-8 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Quality Construction</h3>
+            <div className="bg-green text-white p-8 rounded-2xl">
+              <span className="w-12 h-12 relative block">
+                <Image
+                  src={images.home_mission}
+                  alt="home"
+                  className="object-contain"
+                />
+              </span>
+              <h3 className="text-xl font-bold mb-3">Mission</h3>
               <p className="leading-relaxed">
-                We maintain the highest standards of quality in every project,
-                ensuring durable and reliable construction that stands the test
-                of time.
+                To redefine construction excellence by delivering projects that
+                exceed expectations through innovative solutions, integrity, and
+                quality service
               </p>
             </div>
-            <div className="bg-red-600 text-white p-8 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Expert Team</h3>
+            <div className="bg-gradient-to-b from-primary to-[#2C0101] text-white p-8 rounded-2xl">
+              <span className="w-12 h-12 relative block">
+                <Image
+                  src={images.home_vision}
+                  alt="home"
+                  className="object-contain"
+                />
+              </span>
+              <h3 className="text-xl font-bold mb-3">Vision</h3>
               <p className="leading-relaxed">
-                Our experienced team of professionals brings expertise and
-                dedication to every project, delivering exceptional results
-                consistently.
+                To become a leading construction and civil engineering company
+                in Nigeria, known for reliability, safety, and excellence
               </p>
             </div>
           </div>
@@ -150,33 +209,21 @@ export default function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <p className="text-foreground/50 font-extralight text-lg">
+              Our Core Values.
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent mb-4">
               What We Stand For
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                title: "Integrity",
-                description:
-                  "We conduct business with honesty and transparency in all our dealings.",
-              },
-              {
-                title: "Innovation",
-                description:
-                  "We embrace new technologies and methods to deliver cutting-edge solutions.",
-              },
-              {
-                title: "Professionalism",
-                description:
-                  "We maintain the highest standards of professionalism in every interaction.",
-              },
-            ].map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-red-600 rounded-full"></div>
-                </div>
+            {coreValues.slice(0, 3).map((value, index) => (
+              <div
+                key={index}
+                className="text-center rounded-xl bg-foreground/5 p-5 py-6 flex flex-col items-center"
+              >
+                <span>{value.icon}</span>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {value.title}
                 </h3>
@@ -185,23 +232,13 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Quality Delivery",
-                description:
-                  "We ensure every project meets our rigorous quality standards.",
-              },
-              {
-                title: "Client Focus",
-                description:
-                  "Our clients are at the center of everything we do.",
-              },
-            ].map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-red-600 rounded-full"></div>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[50vw] mx-auto">
+            {coreValues.slice(3).map((value, index) => (
+              <div
+                key={index}
+                className="text-center rounded-xl bg-foreground/5 p-5 py-6 flex flex-col items-center"
+              >
+                <span>{value.icon}</span>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {value.title}
                 </h3>
@@ -211,6 +248,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CTASection />
 
       <ServicesGrid />
       <ProjectGrid projects={featuredProjects} />
@@ -261,7 +300,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CTASection />
       <Footer />
     </main>
   );

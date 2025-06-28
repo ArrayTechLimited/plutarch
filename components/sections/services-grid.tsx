@@ -1,55 +1,65 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import images from "@/public/images";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const services = [
   {
     title: "Civil/Structural Engineering",
-    description: "Expert structural design and civil engineering solutions for all types of construction projects.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "We design and deliver safe, durable, and efficient structural solutions that form the backbone of modern infrastructure",
+    image: images.services_civil_eng,
   },
   {
     title: "Mechanical & Electrical (M&E)",
-    description: "Comprehensive M&E services including HVAC, electrical systems, and mechanical installations.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "Our M&E services ensure seamless integration of building systems from HVAC and plumbing to lighting and power, all designed for performance and efficiency.",
+    image: images.services_mech,
   },
   {
     title: "Architecture",
-    description: "Innovative architectural design that combines functionality with aesthetic excellence.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "We create functional, aesthetic, and innovative architectural designs tailored to client needs and environmental context",
+    image: images.service_arch,
   },
   {
     title: "Project Management",
-    description: "End-to-end project management ensuring timely delivery and quality execution.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "Our expert-led approach ensures every project is delivered on time, within budget, and to the highest standards from start to finish",
+    image: images.services_pm,
   },
   {
     title: "Project Planning",
-    description: "Strategic planning and scheduling to optimize project timelines and resources.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "We provide strategic planning services that align scope, timeline, and resources to ensure smooth project execution.",
+    image: images.services_project_planning,
   },
   {
     title: "Cost Management",
-    description: "Accurate cost estimation and budget management throughout the project lifecycle.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "We deliver cost-effective solutions by managing budgets, controlling expenditures, and maximizing value throughout the project lifecycle.",
+    image: images.services_cm,
   },
   {
     title: "Interior Designs",
-    description: "Creative interior design solutions that enhance functionality and aesthetics.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "We craft inspiring interior spaces that combine style, comfort, and functionality tailored to reflect your vision and brand",
+    image: images.services_interior,
   },
   {
     title: "Construction Supervision",
-    description: "Professional supervision ensuring quality standards and safety compliance.",
-    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "Our team oversees every stage of construction with strict quality control, safety compliance, and attention to detail.",
+    image: images.services_construction,
   },
-]
+];
 
 export default function ServicesGrid() {
   useEffect(() => {
@@ -66,18 +76,20 @@ export default function ServicesGrid() {
           trigger: ".services-grid",
           start: "top 80%",
         },
-      },
-    )
-  }, [])
+      }
+    );
+  }, []);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 pt-36 bg-lemon">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How We Deliver Excellence</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our comprehensive range of services covers every aspect of construction and engineering.
+          <p className="text-foreground/50 font-extralight text-lg">
+            Our Services.
           </p>
+          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent mb-4">
+            How We Deliver Excellence
+          </h2>
         </div>
 
         <div className="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -87,20 +99,24 @@ export default function ServicesGrid() {
               className="service-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="aspect-w-4 aspect-h-3">
-                <img
+                <Image
                   src={service.image || "/placeholder.svg"}
                   alt={service.title}
                   className="w-full h-48 object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
