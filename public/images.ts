@@ -15,6 +15,7 @@ import services_interior from "./images/services/interior.jpg";
 import services_mech from "./images/services/mech.jpg";
 import services_pm from "./images/services/pm.jpg";
 import services_project_planning from "./images/services/project_planning.jpg";
+import portfolio_vi from "./images/portfolio/vi.jpg";
 
 // const ImageBg6 =
 //   "https://res.cloudinary.com/dvxqk1487/image/upload/q_auto,f_auto/v1738492920/hero_images/ImageBg6_kiwrzw.jpg";
@@ -37,4 +38,5 @@ export default {
   services_mech,
   services_pm,
   services_project_planning,
+  portfolio_vi,
 };

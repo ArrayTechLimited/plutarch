@@ -18,6 +18,7 @@ import {
   QualityDeliveryIcon,
   TeamWorkIcon,
 } from "@/components/ui/icons";
+import ContactSection from "@/components/sections/contact-section";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,21 +30,21 @@ const featuredProjects = [
     title: "5 Bedroom Duplex GRA Ikeja, Lagos",
     status: "residential" as const,
     completion: "Completed" as const,
-    image: "/placeholder.svg?height=300&width=400",
+    image: images.portfolio_vi,
   },
   {
     id: "2",
     title: "4 Townhouses – Victoria Island",
     status: "residential" as const,
     completion: "Completed" as const,
-    image: "/placeholder.svg?height=300&width=400",
+    image: images.portfolio_vi,
   },
   {
     id: "3",
     title: "Access Bank – Victoria Island",
     status: "commercial" as const,
     completion: "Completed" as const,
-    image: "/placeholder.svg?height=300&width=400",
+    image: images.portfolio_vi,
   },
 ];
 
@@ -254,51 +255,7 @@ export default function HomePage() {
       <ServicesGrid />
       <ProjectGrid projects={featuredProjects} />
 
-      {/* Process Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Your Journey to Your New Construction Project Starts Here
-            </h2>
-          </div>
-
-          <div className="space-y-8">
-            {[
-              {
-                step: "1",
-                title: "INITIAL CONSULTATION",
-                description:
-                  "We start with understanding your vision and requirements.",
-              },
-              {
-                step: "2",
-                title: "DESIGN & PLANNING",
-                description:
-                  "Our team creates detailed plans and designs for your project.",
-              },
-              {
-                step: "3",
-                title: "CONSTRUCTION",
-                description:
-                  "We execute the project with precision and quality.",
-              },
-            ].map((item, index) => (
-              <div key={index} className="flex items-center space-x-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ContactSection />
 
       <Footer />
     </main>
