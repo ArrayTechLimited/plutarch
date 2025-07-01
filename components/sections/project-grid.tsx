@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Badge from "../ui/badge";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -85,9 +86,12 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           ))}
         </div>
 
-        <button className="mx-auto p-3 px-10 cursor-pointer rounded-full bg-gradient-to-r from-[#EB2525] to-[#470000] text-background">
-          Get Started
-        </button>
+        <Link
+          href={"/portfolio"}
+          className="mx-auto p-3 px-10 cursor-pointer rounded-full bg-gradient-to-r from-[#EB2525] to-[#470000] text-background"
+        >
+          See More
+        </Link>
       </div>
     </section>
   );

@@ -1,113 +1,200 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { notFound } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/sections/hero-section";
 import CTASection from "@/components/sections/cta-section";
+import ProjectGallery from "@/components/project/project-gallery";
+import { getProjectById } from "@/data/projects";
+import { ArrowLeftIcon } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const projectImages = [
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-  "/placeholder.svg?height=400&width=600",
-];
+interface ProjectDetailPageProps {
+  params: {
+    id: string;
+  };
+}
 
-export default function ProjectDetailPage() {
+export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+  const project = getProjectById(params.id);
+  const scopeRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  if (!project) {
+    notFound();
+  }
+
   useEffect(() => {
-    gsap.fromTo(
-      ".gallery-image",
-      { y: 60, opacity: 0, scale: 0.9 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".project-gallery",
-          start: "top 80%",
-        },
-      }
-    );
+    if (scopeRef.current) {
+      gsap.fromTo(
+        scopeRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: scopeRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
 
-    gsap.fromTo(
-      ".scope-content",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".scope-section",
-          start: "top 80%",
-        },
-      }
-    );
+    if (detailsRef.current) {
+      gsap.fromTo(
+        ".project-detail-item",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: detailsRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
   }, []);
 
   return (
     <main className="min-h-screen">
+      <Header />
+
       <HeroSection
-        title="Development of Two Units Of Detached 5 Bedroom Duplex at 30B, Remi fanikayode Street, GRA, Ikeja Lagos."
-        badge={{ text: "Residential", variant: "residential" }}
+        title={project.description}
+        badge={{
+          text:
+            project.status.charAt(0).toUpperCase() + project.status.slice(1),
+          variant: project.status,
+        }}
         backgroundImage="/placeholder.svg?height=600&width=1600"
       />
 
-      {/* Scope of Work Section */}
-      <section className="scope-section py-20">
+      {/* Back Navigation */}
+      <section className="py-8 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-red-600 transition-colors"
+          >
+            <ArrowLeftIcon className="w-4 h-4 mr-2" />
+            Back to Portfolio
+          </Link>
+        </div>
+      </section>
+
+      {/* Scope of Work */}
+      <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="scope-content">
-            <h2 className="text-3xl sm:text-4xl font-bold text-red-600 mb-8">
+          <div ref={scopeRef}>
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent mb-8">
               Scope of Work
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              We handled the{" "}
-              <strong>
-                Architectural Design, Structural Work, Mechanical & Electrical
-                (M&E), Builder's Work, Supervision, Interiors, and External
-                Works,
-              </strong>{" "}
-              delivering end-to-end solutions that bring every aspect of your
-              project to life
+              {project.scopeOfWork}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Project Gallery */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="project-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projectImages.map((image, index) => (
-              <div key={index} className="gallery-image">
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={`Project image ${index + 1}`}
-                  className="w-full h-64 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer hover:scale-105 transform transition-transform"
-                />
-              </div>
-            ))}
+      {/* Project Details */}
+      {/* {(project.completionDate ||
+        project.clientName ||
+        project.projectValue) && (
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              ref={detailsRef}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {project.completionDate && (
+                <div className="project-detail-item text-center">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CalendarIcon className="w-8 h-8 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Completion Date
+                  </h3>
+                  <p className="text-gray-600">{project.completionDate}</p>
+                </div>
+              )}
+
+              {project.clientName && (
+                <div className="project-detail-item text-center">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <UserIcon className="w-8 h-8 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Client
+                  </h3>
+                  <p className="text-gray-600">{project.clientName}</p>
+                </div>
+              )}
+
+              {project.projectValue && (
+                <div className="project-detail-item text-center">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <DollarSignIcon className="w-8 h-8 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Project Value
+                  </h3>
+                  <p className="text-gray-600">{project.projectValue}</p>
+                </div>
+              )}
+            </div>
           </div>
+        </section>
+      )} */}
+
+      {/* Project Features */}
+      {/* {project.features.length > 0 && (
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">
+              Project Features
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {project.features.map((feature, index) => (
+                <Badge
+                  key={index}
+                  variant="residential"
+                  className="bg-gray-100 text-gray-800 text-sm px-4 py-2"
+                >
+                  {feature}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </section>
+      )} */}
+
+      {/* Project Gallery */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">
+            Project Gallery
+          </h2>
+          <ProjectGallery
+            images={project.galleryImages}
+            title={project.title}
+          />
         </div>
       </section>
 
       <CTASection />
+      <Footer />
     </main>
   );
 }

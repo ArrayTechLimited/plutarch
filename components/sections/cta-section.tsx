@@ -6,12 +6,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../ui/button";
 import Image from "next/image";
 import images from "@/public/images";
+import { usePathname } from "next/navigation";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function CTASection() {
+  const pathname = usePathname();
+
   useEffect(() => {
     gsap.fromTo(
       ".cta-content",
@@ -28,6 +31,8 @@ export default function CTASection() {
       }
     );
   }, []);
+
+  const translate = () => pathname == "/";
 
   return (
     // <section className="cta-section py-20">
@@ -57,15 +62,20 @@ export default function CTASection() {
     //   </div>
     // </section>
 
-    <section className="max-w-7xl mx-auto rounded-3xl relative overflow-hidden translate-y-15 bg-gray-50">
+    <section
+      className={`max-w-7xl mx-auto md:rounded-3xl relative overflow-hidden ${
+        translate() ? "translate-y-15" : "mb-20"
+      } bg-gray-50`}
+    >
       <Image
         src={images.dream_house_bg}
         alt="home"
         className="object-cover object-center absolute w-full h-full"
       />
-      <div className="flex flex-col items-start p-7 px-14 z-10 relative text-background bg-foreground/60">
-        <h2 className="text-4xl font-medium">
-          Your Dream Project Deserves <br /> Expert Execution
+      <div className="flex flex-col items-start p-7 md:px-14 z-10 relative text-background bg-foreground/60">
+        <h2 className="text-3xl md:text-4xl font-medium">
+          Your Dream Project Deserves <br className="hidden md:block" /> Expert
+          Execution
         </h2>
         <p className="mb-5">
           From design to delivery, we bring your vision to life with precision

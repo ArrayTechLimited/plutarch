@@ -90,13 +90,18 @@ export default function ServicesGrid() {
           <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent mb-4">
             How We Deliver Excellence
           </h2>
+          <p>
+            Project Management is not just a service - it's central to how we
+            deliver excellence. Our expert team ensures all projects are
+            meticulously planned, coordinated, and executed to meet client goals
+          </p>
         </div>
 
-        <div className="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="services-grid flex flex-row max-w-screen overflow-x-auto md:overflow-auto snap-center snap-mandatory snap-always md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="service-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 min-w-[80vw] md:min-w-auto"
             >
               <div className="aspect-w-4 aspect-h-3">
                 <Image

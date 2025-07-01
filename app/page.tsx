@@ -138,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-5 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -147,9 +147,9 @@ export default function HomePage() {
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent">
                 We deliver reliable <br /> construction solutions tailored{" "}
-                <br /> to your needs
+                <br className="hidden md:block" /> to your needs
               </h2>
-              <p className="text-gray-600 mb-6 leading-8">
+              <p className="text-gray-600 mb-6 text-base leading-10 md:leading-8">
                 Plutarch Integrated Services Ltd is a civil engineering and
                 building construction company. We provide smart, reliable
                 solutions to even the most complex construction challenges. At
@@ -158,7 +158,7 @@ export default function HomePage() {
                 client satisfaction with every project.
               </p>
             </div>
-            <div className="relative w-[350px] aspect-auto ml-auto">
+            <div className="relative w-[350px] aspect-auto ml-auto hidden md:flex">
               <Image
                 src={images.about}
                 alt="Construction site"
@@ -218,7 +218,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {coreValues.slice(0, 3).map((value, index) => (
               <div
                 key={index}
@@ -233,7 +233,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[50vw] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mx-auto">
             {coreValues.slice(3).map((value, index) => (
               <div
                 key={index}
