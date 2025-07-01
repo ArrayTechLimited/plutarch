@@ -41,7 +41,7 @@ const featuredProjects = [
   },
   {
     id: "3",
-    title: "Access Bank – Victoria Island",
+    title: "Access Bank - Victoria Island",
     status: "commercial" as const,
     completion: "Completed" as const,
     image: images.portfolio_vi,
