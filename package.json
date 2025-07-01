@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.34.0",
     "class-variance-authority": "^0.7.1",
     "gsap": "^3.13.0",
     "lucide-react": "^0.523.0",

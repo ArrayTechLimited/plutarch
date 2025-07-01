@@ -22,8 +22,8 @@ export function IntegrityIcon({ width, height }: any) {
           y2="37.5842"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
       </defs>
     </svg>
@@ -68,8 +68,8 @@ export function InnovationIcon({ width, height }: any) {
           y2="21.9764"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_58_200"
@@ -79,8 +79,8 @@ export function InnovationIcon({ width, height }: any) {
           y2="23.2889"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_58_200"
@@ -90,8 +90,8 @@ export function InnovationIcon({ width, height }: any) {
           y2="28.1014"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_58_200"
@@ -101,8 +101,8 @@ export function InnovationIcon({ width, height }: any) {
           y2="33.3514"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_58_200"
@@ -112,8 +112,8 @@ export function InnovationIcon({ width, height }: any) {
           y2="38.6014"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
       </defs>
     </svg>
@@ -142,8 +142,8 @@ export function ProfessionalismIcon({ width, height }: any) {
           y2="39.0172"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
       </defs>
     </svg>
@@ -180,8 +180,8 @@ export function QualityDeliveryIcon({ width, height }: any) {
           y2="38.2291"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_58_358"
@@ -191,8 +191,8 @@ export function QualityDeliveryIcon({ width, height }: any) {
           y2="38.2291"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_58_358"
@@ -202,8 +202,8 @@ export function QualityDeliveryIcon({ width, height }: any) {
           y2="28"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
       </defs>
     </svg>
@@ -252,8 +252,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="14.1366"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_58_347"
@@ -263,8 +263,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="27.8348"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_58_347"
@@ -274,8 +274,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="14.1366"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_58_347"
@@ -285,8 +285,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="27.8525"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_58_347"
@@ -296,8 +296,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="28.3116"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_58_347"
@@ -307,8 +307,8 @@ export function TeamWorkIcon({ width, height }: any) {
           y2="39.8659"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#920505" />
-          <stop offset="1" stop-color="#523A18" />
+          <stop stopColor="#920505" />
+          <stop offset="1" stopColor="#523A18" />
         </linearGradient>
       </defs>
     </svg>

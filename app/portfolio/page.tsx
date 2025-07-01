@@ -34,8 +34,6 @@ const portfolioProjects = [
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen">
-      <Header />
-
       <HeroSection
         title="Project Portfolio"
         backgroundImage="/placeholder.svg?height=600&width=1600"
@@ -43,7 +41,6 @@ export default function PortfolioPage() {
 
       <ProjectGrid projects={portfolioProjects} title="Our Projects" />
       <CTASection />
-      <Footer />
     </main>
   );
 }

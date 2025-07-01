@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./header";
+import Footer from "./footer";
 
 type Props = {
   children: React.ReactNode;
@@ -7,9 +8,10 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div>
+    <>
       <Header />
       {children}
-    </div>
+      <Footer />
+    </>
   );
 }

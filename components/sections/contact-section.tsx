@@ -217,9 +217,8 @@ export default function ContactSection() {
         {/* Header */}
         <div ref={titleRef} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <p className="text-sm sm:text-base text-gray-600">Contact Us.</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-primary leading-tight">
-            Your Journey to Your New
-            <br className="hidden sm:block" />
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent leading-tight">
+            Your Journey to Your New <br className="hidden sm:block" />
             Construction Project Starts Here
           </h2>
         </div>
@@ -230,14 +229,11 @@ export default function ContactSection() {
           <div ref={leftContentRef} className="space-y-8">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-0">
-                Have a Project in Mind?
+                Have questions or ready to invest in a sustainable future?
               </h3>
-              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
-                We're Just a Message Away
-              </h4>
               <p className="text-gray-600 leading-relaxed">
                 Our team is here to guide you every step of the way. Reach out
-                to us today and let's bring your vision to life.
+                to us today and let&apos;s bring your vision to life
               </p>
             </div>
 
@@ -425,12 +421,12 @@ export default function ContactSection() {
               </div>
 
               {/* Submit Button */}
-              <div className="form-field pt-4">
+              <div className="form-field pt-4 flex w-full">
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto min-w-[200px] disabled:opacity-50 disabled:cursor-not-allowed"
-                  size="lg"
+                  className="sm:w-auto min-w-[200px] mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="md"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">

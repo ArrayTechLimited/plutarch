@@ -56,7 +56,7 @@ export default function HeroSection({
         <Image
           src={images.home_hero}
           alt="Hero image"
-          className="object-cover"
+          className="object-cover  h-full"
         />
       </div>
 

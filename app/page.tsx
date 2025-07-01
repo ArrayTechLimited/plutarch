@@ -256,8 +256,6 @@ export default function HomePage() {
       <ProjectGrid projects={featuredProjects} />
 
       <ContactSection />
-
-      <Footer />
     </main>
   );
 }

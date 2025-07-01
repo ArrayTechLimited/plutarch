@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Header from "@/components/layout/header"
-import Footer from "@/components/layout/footer"
-import HeroSection from "@/components/sections/hero-section"
-import CTASection from "@/components/sections/cta-section"
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import HeroSection from "@/components/sections/hero-section";
+import CTASection from "@/components/sections/cta-section";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const projectImages = [
@@ -25,7 +25,7 @@ const projectImages = [
   "/placeholder.svg?height=400&width=600",
   "/placeholder.svg?height=400&width=600",
   "/placeholder.svg?height=400&width=600",
-]
+];
 
 export default function ProjectDetailPage() {
   useEffect(() => {
@@ -43,8 +43,8 @@ export default function ProjectDetailPage() {
           trigger: ".project-gallery",
           start: "top 80%",
         },
-      },
-    )
+      }
+    );
 
     gsap.fromTo(
       ".scope-content",
@@ -57,14 +57,12 @@ export default function ProjectDetailPage() {
           trigger: ".scope-section",
           start: "top 80%",
         },
-      },
-    )
-  }, [])
+      }
+    );
+  }, []);
 
   return (
     <main className="min-h-screen">
-      <Header />
-
       <HeroSection
         title="Development of Two Units Of Detached 5 Bedroom Duplex at 30B, Remi fanikayode Street, GRA, Ikeja Lagos."
         badge={{ text: "Residential", variant: "residential" }}
@@ -75,14 +73,18 @@ export default function ProjectDetailPage() {
       <section className="scope-section py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="scope-content">
-            <h2 className="text-3xl sm:text-4xl font-bold text-red-600 mb-8">Scope of Work</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-red-600 mb-8">
+              Scope of Work
+            </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               We handled the{" "}
               <strong>
-                Architectural Design, Structural Work, Mechanical & Electrical (M&E), Builder's Work, Supervision,
-                Interiors, and External Works,
+                Architectural Design, Structural Work, Mechanical & Electrical
+                (M&E), Builder's Work, Supervision, Interiors, and External
+                Works,
               </strong>{" "}
-              delivering end-to-end solutions that bring every aspect of your project to life
+              delivering end-to-end solutions that bring every aspect of your
+              project to life
             </p>
           </div>
         </div>
@@ -106,7 +108,6 @@ export default function ProjectDetailPage() {
       </section>
 
       <CTASection />
-      <Footer />
     </main>
-  )
+  );
 }
