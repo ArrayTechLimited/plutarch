@@ -255,7 +255,7 @@ export default function HomePage() {
       <ServicesGrid />
       <ProjectGrid projects={featuredProjects} />
 
-      <ContactSection />
+      {/* <ContactSection /> */}
     </main>
   );
 }
