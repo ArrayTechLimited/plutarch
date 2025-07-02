@@ -91,7 +91,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <HeroSection
         // title="From Blueprint to Reality, We deliver with"
         // subtitle="Project Management"

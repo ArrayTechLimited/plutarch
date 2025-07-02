@@ -41,7 +41,7 @@ export default function PortfolioPage() {
   }, [filteredProjects]);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <HeroSection
         title="Project Portfolio"
         backgroundImage={images.portfolio_hero}

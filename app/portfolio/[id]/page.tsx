@@ -71,7 +71,7 @@ export default async function ProjectDetailPage({
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <Header />
 
       <HeroSection
