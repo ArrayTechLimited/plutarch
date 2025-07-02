@@ -45,7 +45,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
   }, []);
 
   return (
-    <section className="py-20">
+    <section className="py-20" id="portfolio">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
         <div className="text-center mb-16">
           <p className="text-foreground/50 font-extralight text-lg">

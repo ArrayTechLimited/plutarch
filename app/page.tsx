@@ -6,7 +6,7 @@ import HeroSection from "@/components/sections/hero-section";
 import ServicesGrid from "@/components/sections/services-grid";
 import ProjectGrid from "@/components/sections/project-grid";
 import CTASection from "@/components/sections/cta-section";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -93,10 +93,10 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <HeroSection
-        title="From Blueprint to Reality, We deliver with"
-        subtitle="Project Management"
+        // title="From Blueprint to Reality, We deliver with"
+        // subtitle="Project Management"
         showCTA={true}
-        backgroundImage="/placeholder.svg?height=800&width=1600"
+        // backgroundImage="/placeholder.svg?height=800&width=1600"
       />
 
       {/* Services Icons Section */}
@@ -138,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-5 md:py-20">
+      <section className="py-5 md:py-20" id="about">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

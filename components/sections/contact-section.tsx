@@ -215,6 +215,7 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       className="py-16 sm:py-20 lg:py-24 bg-gray-50 overflow-x-hidden"
+      id="contact-us"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

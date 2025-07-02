@@ -12,6 +12,8 @@ import CTASection from "@/components/sections/cta-section";
 import ProjectGallery from "@/components/project/project-gallery";
 import { getProjectById } from "@/data/projects";
 import { ArrowLeftIcon } from "lucide-react";
+import images from "@/public/images";
+import { StaticImageData } from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -79,7 +81,8 @@ export default async function ProjectDetailPage({
             project.status.charAt(0).toUpperCase() + project.status.slice(1),
           variant: project.status,
         }}
-        backgroundImage="/placeholder.svg?height=600&width=1600"
+        backgroundImage={project.thumbnailImage as StaticImageData}
+        heroClassName="min-h-[55vh] !pt-36"
       />
 
       {/* Back Navigation */}

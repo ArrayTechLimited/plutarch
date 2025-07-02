@@ -6,14 +6,42 @@ import { gsap } from "gsap";
 import { MenuIcon, MoreHorizontalIcon, X } from "lucide-react";
 import Image from "next/image";
 import images from "@/public/images";
+import { scrollTo } from "@/lib/utils";
+
+type NavItem = {
+  name: string;
+  href: string;
+};
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Properties", href: "/properties" },
-  { name: "Blog", href: "/blog" },
+  //   { name: "Home", href: "/" },
+  { name: "About Us", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Portfolio", href: "#portfolio" },
+  { name: "Contact Us", href: "#contact-us" },
 ];
+
+export function NavLink({ href, name }: NavItem) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      document
+        .getElementById(href.substring(1))
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <Link
+      key={name}
+      href={href}
+      className="text-gray-700 hover:text-red-600 transition-colors duration-200 text-sm font-medium"
+      onClick={handleClick}
+    >
+      {name}
+    </Link>
+  );
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,13 +68,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-16 mr-16">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-red-600 transition-colors duration-200 text-sm font-medium"
-              >
-                {item.name}
-              </Link>
+              <NavLink href={item.href} name={item.name} />
             ))}
           </div>
 

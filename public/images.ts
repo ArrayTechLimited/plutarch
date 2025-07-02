@@ -6,6 +6,8 @@ import home_hero4 from "./images/home_hero4.jpg";
 import hero_sub_1 from "./images/hero_sub_1.png";
 import hero_sub_2 from "./images/hero_sub_2.png";
 import hero_sub_3 from "./images/hero_sub_3.png";
+import portfolio_hero from "./images/portfolio_hero.jpg";
+import portfolio_info_hero from "./images/portfolio_info_hero.jpg";
 import about from "./images/about.jpg";
 import home_mission from "./images/home_mission.png";
 import home_vision from "./images/home_vision.png";
@@ -53,7 +55,9 @@ export default {
   services_construction,
   services_interior,
   services_mech,
-  services_pm,
+    services_pm,
+    portfolio_hero,
+    portfolio_info_hero,
   services_project_planning,
     portfolio_vi,
     proj1,

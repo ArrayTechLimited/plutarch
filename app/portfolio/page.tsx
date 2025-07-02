@@ -9,6 +9,7 @@ import ProjectCard from "@/components/project/project-card";
 import ProjectFiltersComponent from "@/components/project/project-filters";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import images from "@/public/images";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +44,8 @@ export default function PortfolioPage() {
     <main className="min-h-screen">
       <HeroSection
         title="Project Portfolio"
-        backgroundImage="/placeholder.svg?height=600&width=1600"
+        backgroundImage={images.portfolio_hero}
+        heroClassName="min-h-[55vh] !pt-36"
       />
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

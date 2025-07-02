@@ -4,19 +4,20 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Button from "../ui/button";
 import Badge from "../ui/badge";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import images from "@/public/images";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface HeroSectionProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   badge?: {
     text: string;
     variant?: "residential" | "commercial" | "renovation" | "fit-out";
   };
   showCTA?: boolean;
-  backgroundImage?: string;
+  backgroundImage?: StaticImageData;
+  heroClassName?: string;
 }
 
 export default function HeroSection({
@@ -24,49 +25,60 @@ export default function HeroSection({
   subtitle,
   badge,
   showCTA = false,
-  backgroundImage = "/placeholder.svg?height=600&width=1200",
+  backgroundImage,
+  heroClassName,
 }: HeroSectionProps) {
   const heroSlides = [
     {
       mainImage: images.home_hero,
       title: "From Blueprint to Reality, We deliver with Excellent Precision",
+      titleColor: "text-foreground",
+      spanText: "Excellent Precision",
+      spanColor: "from-[#EB2525] to-[#470000]",
       service: "Project Management",
     },
     {
       mainImage: images.home_hero2,
-      title: "From Vision to Form, We design with Purpose and Style",
+      title: "From Vision to Form, We design with",
+      titleColor: "text-background",
+      spanText: "Purpose and Style",
+
+      spanColor: "from-[#FFBABA] to-[#CA0404]",
       service: "Architecture",
-      mode: "light",
     },
     {
       mainImage: images.home_hero3,
-      title: "From Groundwork to Skyline, We build with Strength and Precision",
+      title: "From Groundwork to Skyline, We build with",
+      titleColor: "text-background",
+      spanText: "Strength and Precision",
+
+      spanColor: "from-[#FFBABA] to-[#CA0404]",
       service: "Civil/Structural Engineering",
-      mode: "light",
     },
     {
       mainImage: images.home_hero4,
-      title: "From Idea to Execution, We map the Path to Success",
+      title: "From Idea to Execution, We map the",
+      titleColor: "text-background",
+      spanText: "Path to Success",
+
+      spanColor: "from-[#FFBABA] to-[#CA0404]",
       service: "Project Planning",
-      mode: "light",
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      if (currentIndex >= heroSlides.length - 1) {
-        setCurrentIndex(0);
-      } else {
-        setCurrentIndex(currentIndex + 1);
-      }
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex >= heroSlides.length - 1 ? 0 : prevIndex + 1
+      );
     }, 5000);
 
     return () => {
-      clearInterval;
+      clearInterval(interval);
     };
-  }, [currentIndex]);
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -88,7 +100,9 @@ export default function HeroSection({
   }, [badge]);
 
   return (
-    <section className="relative min-h-[85vh] pt-56 flex justify-center overflow-hidden">
+    <section
+      className={`relative pt-56 min-h-[85vh] flex justify-center overflow-hidden ${heroClassName}`}
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -96,7 +110,7 @@ export default function HeroSection({
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <Image
-          src={heroSlides[currentIndex].mainImage}
+          src={backgroundImage || heroSlides[currentIndex].mainImage}
           alt="Hero image"
           className="object-cover  h-full"
         />
@@ -110,35 +124,43 @@ export default function HeroSection({
           </div>
         )}
 
-        <h1
-          className={`text-3xl sm:text-4xl lg:text-4xl xl:text-6xl font-bold ${
-            heroSlides[currentIndex]?.mode == "light"
-              ? `text-background`
-              : `text-foreground`
-          } mb-20 md:mb-7 leading-tight`}
-        >
-          {heroSlides[currentIndex].title}{" "}
-          <span className="font-bold bg-gradient-to-r from-[#EB2525] to-[#470000] bg-clip-text text-transparent">
-            Excellent Precision
-          </span>
-        </h1>
+        {title ? (
+          <h1
+            className={`text-3xl sm:text-4xl lg:text-4xl xl:text-6xl font-bold text-background mb-20 md:mb-7 leading-tight`}
+          >
+            {title}
+          </h1>
+        ) : (
+          <h1
+            className={`text-3xl sm:text-4xl lg:text-4xl xl:text-6xl font-bold ${heroSlides[currentIndex].titleColor} mb-20 md:mb-7 leading-tight`}
+          >
+            {heroSlides[currentIndex].title}{" "}
+            <span
+              className={`font-bold bg-gradient-to-r ${heroSlides[currentIndex].spanColor} bg-clip-text text-transparent`}
+            >
+              {heroSlides[currentIndex].spanText}
+            </span>
+          </h1>
+        )}
 
-        <div className="max-w-[400px] mx-auto border-background border-[0.5px] rounded-3xl bg-background/20 backdrop-blur-md flex flex-row items-center justify-between p-5">
-          <div className="flex flex-col items-start">
-            <span className="text-xl text-white">Our services</span>
-            <h3 className="text-2xl font-semibold text-primary">
-              {heroSlides[currentIndex].service}
-            </h3>
+        {showCTA && (
+          <div className="max-w-[400px] mx-auto border-background border-[0.5px] rounded-3xl bg-background/20 backdrop-blur-md flex flex-row items-center justify-between p-5">
+            <div className="flex flex-col items-start">
+              <span className="text-xl text-background">Our services</span>
+              <h3 className="text-2xl font-semibold text-background">
+                {heroSlides[currentIndex].service}
+              </h3>
+            </div>
+            <div className="flex flex-row items-center space-x-3">
+              <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
+                <ChevronLeft className="text-white" />
+              </button>
+              <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
+                <ChevronRight className="text-white" />
+              </button>
+            </div>
           </div>
-          <div className="flex flex-row items-center space-x-3">
-            <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
-              <ChevronLeft className="text-white" />
-            </button>
-            <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
-              <ChevronRight className="text-white" />
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
