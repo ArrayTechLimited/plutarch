@@ -19,34 +19,35 @@ import {
   TeamWorkIcon,
 } from "@/components/ui/icons";
 import ContactSection from "@/components/sections/contact-section";
+import { projects } from "@/data/projects";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const featuredProjects = [
-  {
-    id: "1",
-    title: "5 Bedroom Duplex GRA Ikeja, Lagos",
-    status: "residential" as const,
-    completion: "Completed" as const,
-    image: images.portfolio_vi,
-  },
-  {
-    id: "2",
-    title: "4 Townhouses – Victoria Island",
-    status: "residential" as const,
-    completion: "Completed" as const,
-    image: images.portfolio_vi,
-  },
-  {
-    id: "3",
-    title: "Access Bank - Victoria Island",
-    status: "commercial" as const,
-    completion: "Completed" as const,
-    image: images.portfolio_vi,
-  },
-];
+// const featuredProjects = [
+//   {
+//     id: "1",
+//     title: "5 Bedroom Duplex GRA Ikeja, Lagos",
+//     status: "residential" as const,
+//     completion: "Completed" as const,
+//     image: images.portfolio_vi,
+//   },
+//   {
+//     id: "2",
+//     title: "4 Townhouses – Victoria Island",
+//     status: "residential" as const,
+//     completion: "Completed" as const,
+//     image: images.portfolio_vi,
+//   },
+//   {
+//     id: "3",
+//     title: "Access Bank - Victoria Island",
+//     status: "commercial" as const,
+//     completion: "Completed" as const,
+//     image: images.portfolio_vi,
+//   },
+// ];
 
 export default function HomePage() {
   const coreValues = [
@@ -253,7 +254,7 @@ export default function HomePage() {
       <CTASection />
 
       <ServicesGrid />
-      <ProjectGrid projects={featuredProjects} />
+      <ProjectGrid projects={projects.slice(0, 3)} />
 
       <ContactSection />
     </main>

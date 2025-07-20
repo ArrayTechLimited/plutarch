@@ -33,6 +33,29 @@ import proj9 from "./images/projects/9.jpg";
 import proj10 from "./images/projects/10.jpg";
 import proj11 from "./images/projects/11.jpg";
 
+import access1 from "./images/portfolio/access1.jpg";
+import access2 from "./images/portfolio/access2.jpg";
+import access3 from "./images/portfolio/access3.jpg";
+import access4 from "./images/portfolio/access4.jpg";
+
+import airport1 from "./images/portfolio/airport1.jpg";
+import airport2 from "./images/portfolio/airport2.jpg";
+import airport3 from "./images/portfolio/airport3.jpg";
+import airport4 from "./images/portfolio/airport4.jpg";
+
+import church1 from "./images/portfolio/church1.jpg";
+import church2 from "./images/portfolio/church2.jpg";
+import church3 from "./images/portfolio/church3.jpg";
+import church4 from "./images/portfolio/church4.jpg";
+import church5 from "./images/portfolio/church5.jpg";
+import church6 from "./images/portfolio/church6.jpg";
+import church7 from "./images/portfolio/church7.jpg";
+
+import goriola1 from "./images/portfolio/goriola1.jpg";
+import goriola2 from "./images/portfolio/goriola2.jpg";
+import goriola3 from "./images/portfolio/goriola3.jpg";
+import goriola4 from "./images/portfolio/goriola4.jpg";
+
 // const ImageBg6 =
 //   "https://res.cloudinary.com/dvxqk1487/image/upload/q_auto,f_auto/v1738492920/hero_images/ImageBg6_kiwrzw.jpg";
 
@@ -70,5 +93,28 @@ export default {
     proj8,
     proj9,
     proj10,
-    proj11
+    proj11,
+
+    access1,
+    access2,
+    access3,
+    access4,
+
+airport1,
+airport2,
+airport3,
+    airport4,
+
+    church1,
+church2,
+church3,
+church4,
+church5,
+church6,
+    church7,
+
+    goriola1,
+goriola2,
+goriola3,
+goriola4
 };

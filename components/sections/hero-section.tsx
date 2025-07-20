@@ -112,7 +112,7 @@ export default function HeroSection({
         <Image
           src={backgroundImage || heroSlides[currentIndex].mainImage}
           alt="Hero image"
-          className="object-cover  h-full"
+          className="object-cover h-full w-full object-top"
         />
       </div>
 

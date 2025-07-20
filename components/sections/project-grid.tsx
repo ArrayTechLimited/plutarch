@@ -6,17 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Badge from "../ui/badge";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { Project } from "@/types/project";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
-}
-
-interface Project {
-  id: string;
-  title: string;
-  status: "residential" | "commercial" | "renovation" | "fit-out";
-  completion: "Completed" | "In Progress";
-  image: StaticImageData;
 }
 
 interface ProjectGridProps {
@@ -62,7 +55,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               <div className="bg-transparent rounded-lg overflow-hidden transition-all duration-300 group-hover:scale-105">
                 <div className="aspect-w-4 aspect-h-3 relative">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.thumbnailImage || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-64 object-cover"
                   />
