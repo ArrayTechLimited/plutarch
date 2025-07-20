@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { MenuIcon, MoreHorizontalIcon, X } from "lucide-react";
 import Image from "next/image";
 import images from "@/public/images";
-import { scrollTo } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 type NavItem = {
   name: string;
@@ -21,21 +21,35 @@ const navigation = [
   { name: "Contact Us", href: "#contact-us" },
 ];
 
-export function NavLink({ href, name }: NavItem) {
+export function NavLink({
+  href,
+  name,
+  className,
+  onClick: navLinkOnClick,
+}: NavItem & { className?: string; onClick?: () => void }) {
+  const pathname = usePathname();
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith("#")) {
-      e.preventDefault();
-      document
-        .getElementById(href.substring(1))
-        ?.scrollIntoView({ behavior: "smooth" });
+      if (pathname === "/") {
+        e.preventDefault();
+        document
+          .getElementById(href.substring(1))
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    navLinkOnClick?.();
   };
+
+  const finalHref =
+    href.startsWith("#") && pathname !== "/" ? `/${href}` : href;
 
   return (
     <Link
-      key={name}
-      href={href}
-      className="text-gray-700 hover:text-red-600 transition-colors duration-200 text-sm font-medium"
+      href={finalHref}
+      className={
+        className ||
+        "text-gray-700 hover:text-red-600 transition-colors duration-200 text-sm font-medium"
+      }
       onClick={handleClick}
     >
       {name}
@@ -68,7 +82,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-16 mr-16">
             {navigation.map((item) => (
-              <NavLink href={item.href} name={item.name} />
+              <NavLink key={item.name} href={item.href} name={item.name} />
             ))}
           </div>
 
@@ -91,14 +105,12 @@ export default function Header() {
           <div className="md:hidden mobile-navbar fixed top-13 left-0 h-screen w-screen mt-4 pt-4 bg-background">
             <div className="flex flex-col space-y-3 px-5">
               {navigation.map((item) => (
-                <Link
+                <NavLink
                   key={item.name}
-                  href={item.href}
+                  {...item}
                   className="text-gray-700 hover:text-red-600 transition-colors duration-200 text-sm font-medium py-3"
                   onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                />
               ))}
 
               <button className="p-2 px-8 cursor-pointer rounded-full bg-gradient-to-r from-[#EB2525] to-[#470000] text-background mt-10">

@@ -51,7 +51,11 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
 
         <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {projects.map((project) => (
-            <div key={project.id} className="project-card group cursor-pointer">
+            <Link
+              href={`/portfolio/${project.id}`}
+              key={project.id}
+              className="project-card group cursor-pointer"
+            >
               <div className="bg-transparent rounded-lg overflow-hidden transition-all duration-300 group-hover:scale-105">
                 <div className="aspect-w-4 aspect-h-3 relative">
                   <Image
@@ -75,7 +79,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   </h3>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
