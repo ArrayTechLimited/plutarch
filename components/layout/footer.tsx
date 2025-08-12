@@ -102,19 +102,19 @@ export default function Footer() {
               </Link>
               <div className="flex flex-row items-baseline space-x-3">
                 <Link
-                  href={"tel:2347055557011"}
+                  href={"tel:447765098633"}
                   className="flex flex-row items-center space-x-1"
                 >
                   <Phone className="size-4" />
-                  <p>07055557011</p>
+                  <p>+44 7765 098633</p>
                 </Link>
-                <Link
+                {/* <Link
                   href={"tel:2349072659728"}
                   className="flex flex-row items-center space-x-1"
                 >
                   <Phone className="size-4" />
                   <p>09072659728</p>
-                </Link>
+                </Link> */}
               </div>
               <Link
                 href={"mailto:info@plutarch.com"}

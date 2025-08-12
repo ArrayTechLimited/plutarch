@@ -68,6 +68,19 @@ export default function HeroSection({
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex <= 0 ? heroSlides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex >= heroSlides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -147,15 +160,21 @@ export default function HeroSection({
           <div className="max-w-[400px] mx-auto border-background border-[0.5px] rounded-3xl bg-background/20 backdrop-blur-md flex flex-row items-center justify-between p-5">
             <div className="flex flex-col items-start">
               <span className="text-xl text-background">Our services</span>
-              <h3 className="text-2xl font-semibold text-background">
+              <h3 className="text-2xl font-semibold text-background text-left">
                 {heroSlides[currentIndex].service}
               </h3>
             </div>
             <div className="flex flex-row items-center space-x-3">
-              <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
+              <button
+                onClick={goToPrevious}
+                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center transition-colors"
+              >
                 <ChevronLeft className="text-white" />
               </button>
-              <button className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center">
+              <button
+                onClick={goToNext}
+                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 grid place-items-center transition-colors"
+              >
                 <ChevronRight className="text-white" />
               </button>
             </div>

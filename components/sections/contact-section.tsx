@@ -31,7 +31,7 @@ interface FormErrors {
 const contactInfo = [
   {
     icon: PhoneIcon,
-    text: "07055557011, 09072699728",
+    text: "+447765098633",
     type: "phone",
   },
   {

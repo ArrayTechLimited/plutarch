@@ -254,7 +254,7 @@ export default function HomePage() {
       <CTASection />
 
       <ServicesGrid />
-      <ProjectGrid projects={projects.slice(0, 3)} />
+      {/* <ProjectGrid projects={projects.slice(0, 3)} /> */}
 
       <ContactSection />
     </main>
