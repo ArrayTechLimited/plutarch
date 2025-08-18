@@ -101,13 +101,13 @@ export default function Footer() {
                 <p>1, Adebunmi Crescent, Ikeja, Lagos.</p>
               </Link>
               <div className="flex flex-row items-baseline space-x-3">
-                <Link
+                {/* <Link
                   href={"tel:447765098633"}
                   className="flex flex-row items-center space-x-1"
                 >
                   <Phone className="size-4" />
                   <p>+44 7765 098633</p>
-                </Link>
+                </Link> */}
                 <Link
                   href={"tel:2347020101414"}
                   className="flex flex-row items-center space-x-1"

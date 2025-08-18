@@ -29,11 +29,11 @@ interface FormErrors {
 }
 
 const contactInfo = [
-  {
-    icon: PhoneIcon,
-    text: "+447765098633",
-    type: "phone",
-  },
+  //   {
+  //     icon: PhoneIcon,
+  //     text: "+447765098633",
+  //     type: "phone",
+  //   },
   {
     icon: PhoneIcon,
     text: "+2347020101414",
