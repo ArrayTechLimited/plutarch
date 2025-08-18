@@ -35,6 +35,11 @@ const contactInfo = [
     type: "phone",
   },
   {
+    icon: PhoneIcon,
+    text: "+2347020101414",
+    type: "phone",
+  },
+  {
     icon: MapPinIcon,
     text: "1, Adekunbi Crescent, Ikeja, Lagos.",
     type: "address",

@@ -108,13 +108,13 @@ export default function Footer() {
                   <Phone className="size-4" />
                   <p>+44 7765 098633</p>
                 </Link>
-                {/* <Link
-                  href={"tel:2349072659728"}
+                <Link
+                  href={"tel:2347020101414"}
                   className="flex flex-row items-center space-x-1"
                 >
                   <Phone className="size-4" />
-                  <p>09072659728</p>
-                </Link> */}
+                  <p>+234 702 010 1414</p>
+                </Link>
               </div>
               <Link
                 href={"mailto:info@plutarch.com"}
